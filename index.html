@@ -21,6 +21,8 @@
       color: white;
       min-height: 100vh;
       padding: 20px;
+      background-image: url('./telegram-cloud-photo-size-2-5345977039678281976-y.jpg');
+      background-position: center;
     }
 
     .container {
@@ -34,7 +36,7 @@
     }
 
     .subtitle {
-      color: #a5adbb;
+      color: #fff;
       margin-bottom: 30px;
       line-height: 1.5;
     }
@@ -263,7 +265,7 @@
       type="text"
       id="giverInput"
       class="input"
-      placeholder="Например: Сергей"
+      placeholder="Напиши, кто ты, или какое нибудь поздравление милое, мне приятно будет :)"
       maxlength="40"
     />
 
@@ -375,7 +377,7 @@
           <div class="gift-title">${data.title}</div>
 
           <div class="gift-description">
-            ${data.description}
+            <a href="${data.description}">Ссылка</a>
           </div>
 
           <div class="gift-price">
