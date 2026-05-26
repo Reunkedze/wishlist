@@ -337,26 +337,6 @@
   ];
 
   // =========================
-  // CREATE DOCS IF NOT EXISTS
-  // =========================
-
-  for (const gift of gifts) {
-    const ref = doc(db, "wishlist", gift.id);
-
-    await setDoc(
-      ref,
-      {
-        title: gift.title,
-        description: gift.description,
-        price: gift.price,
-        selected: false,
-        selectedBy: null
-      },
-      { merge: true }
-    );
-  }
-
-  // =========================
   // STATE
   // =========================
 
