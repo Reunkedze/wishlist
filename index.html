@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Birthday Wishlist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #0f1115;
+      color: white;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #a5adbb;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .wishlist {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .gift-card {
+      background: #1a1d24;
+      border: 1px solid #2c313c;
+      border-radius: 20px;
+      padding: 20px;
+      transition: 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gift-card.selected {
+      border-color: #34c759;
+      background: #132218;
+    }
+
+    .gift-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .gift-info {
+      flex: 1;
+    }
+
+    .gift-title {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .gift-description {
+      color: #a5adbb;
+      line-height: 1.5;
+    }
+
+    .gift-price {
+      margin-top: 12px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .gift-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .select-btn {
+      background: #3b82f6;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .select-btn:hover {
+      opacity: 0.9;
+    }
+
+    .select-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .giver {
+      color: #7ee787;
+      font-size: 14px;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    .status {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: #34c759;
+      color: white;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: bold;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 420px;
+      background: #1a1d24;
+      border-radius: 24px;
+      padding: 24px;
+      border: 1px solid #2c313c;
+    }
+
+    .modal-title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .modal-subtitle {
+      color: #a5adbb;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .input {
+      width: 100%;
+      background: #0f1115;
+      border: 1px solid #2c313c;
+      border-radius: 12px;
+      padding: 14px;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      margin-bottom: 16px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .confirm-btn {
+      flex: 1;
+      background: #34c759;
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .cancel-btn {
+      flex: 1;
+      background: #2c313c;
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .loader {
+      margin-top: 30px;
+      color: #a5adbb;
+    }
+
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 26px;
+      }
+
+      .gift-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .gift-actions {
+        align-items: stretch;
+      }
+
+      .giver {
+        text-align: left;
+      }
+
+      .select-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎁 Birthday Wishlist</h1>
+
+  <p class="subtitle">
+    Если подарок уже кто-то выбрал — он мгновенно отобразится на всех устройствах.
+  </p>
+
+  <div class="wishlist" id="wishlist">
+    <div class="loader">Загрузка...</div>
+  </div>
+</div>
+
+</body>
+</html>
