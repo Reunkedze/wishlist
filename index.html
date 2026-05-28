@@ -6,7 +6,8 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
-  <title>Birthday Wishlist</title>
+  <title>Вишлист на мой др</title>
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
 
   <style>
     * {
@@ -21,8 +22,7 @@
       color: white;
       min-height: 100vh;
       padding: 20px;
-      background-image: url('./telegram-cloud-photo-size-2-5345977039678281976-y.jpg');
-      background-position: center;
+      background-image: url('./telegram-cloud-photo-size-2-5345977039678281976-y.jpg'), url('./konata-happy.gif');
     }
 
     .container {
@@ -48,7 +48,7 @@
     }
 
     .gift-card {
-      background: #1a1d24;
+      background: #1a1d2488;
       border: 1px solid #2c313c;
       border-radius: 20px;
       padding: 20px;
@@ -241,10 +241,10 @@
 <body>
 
 <div class="container">
-  <h1>🎁 Birthday Wishlist</h1>
+  <h1>Birthday Wishlist</h1>
 
   <p class="subtitle">
-    Если подарок уже кто-то выбрал — он мгновенно отобразится на всех устройствах.
+    Если подарок уже кто-то выбрал - он мгновенно отобразится на всех устройствах.
   </p>
 
   <div class="wishlist" id="wishlist">
@@ -335,7 +335,153 @@
       title: "Какая то",
       description: "Книга",
       price: "399€"
-    }
+    },
+    {
+      id: "gift-3",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-4",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€",
+      selected: false,
+      selectedBy: null
+    },
+    {
+      id: "gift-5",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-6",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-7",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-8",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-9",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-10",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-11",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-12",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-13",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-14",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-15",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-16",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-17",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-18",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-19",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-20",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-21",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-22",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-23",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-24",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-25",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
+    {
+      id: "gift-26",
+      title: "Какая то",
+      description: "Книга",
+      price: "399€"
+    },
   ];
 
   // =========================
@@ -390,13 +536,13 @@
             data.selected
               ? `
                 <div class="giver">
-                  🎉 Дарит:<br>
+                  Дарить будет<br>
                   <strong>${escapeHtml(data.selectedBy)}</strong>
                 </div>
               `
               : `
                 <button class="select-btn">
-                  Выбрать подарок
+                  Буду дарить это
                 </button>
               `
           }
@@ -422,6 +568,7 @@
   // обновления прилетают мгновенно
 
   gifts.forEach(gift => {
+    console.log(gift)
     const ref = doc(db, "wishlist", gift.id);
 
     onSnapshot(ref, (snapshot) => {
